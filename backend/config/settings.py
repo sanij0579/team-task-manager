@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'tasks',
     'dashboard',
 ]
-
+AUTH_USER_MODEL = 'accounts.User' 
 
 # MIDDLEWARE (IMPORTANT ORDER)
 MIDDLEWARE = [

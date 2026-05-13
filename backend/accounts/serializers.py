@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import User
 from django.contrib.auth.password_validation import validate_password
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 class RegisterSerializer(serializers.ModelSerializer):
 
@@ -21,3 +22,8 @@ class RegisterSerializer(serializers.ModelSerializer):
             role=validated_data.get('role', 'member')
         )
         return user
+
+
+# ✅ JWT ko email se login karne do
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    username_field = 'email'
